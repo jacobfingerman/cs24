@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cctype>
-#include <string>
 
 using namespace std;
 
@@ -9,10 +8,12 @@ char* flipSent(string sent);
 int main()
 {
     string sentence;
+    int size;
 
     getline(std::cin, sentence);
+    size = sentence.size();
     
-    for(int i = 0; i < sentence.size(); i++) cout << *(flipSent(sentence) + i);
+    for(int i = 0; i < size; i++) cout << *(flipSent(sentence) + i);
     
     cout << "\n";
     
