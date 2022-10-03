@@ -1,4 +1,7 @@
 all:
 	g++ -Wall -Wextra -Werror olleh.cpp -o olleh
 clean:
-	rm -f *.exe *.o
+	-del -f *.exe *.o
+	-rm -f *.exe *.o
+	
+	
