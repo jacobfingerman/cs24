@@ -5,7 +5,7 @@
 // Use this file to test your FibVec class!
 // This file won't be graded - do whatever you want.
 
-const void da(FibVec fibb) {
+void da(FibVec fibb) {
 	std::cout << "{";
 	for (size_t i = 0; i < fibb.count(); i++) std::cout << fibb.lookup(i) << ", ";
 	std::cout << "}\n";
