@@ -35,7 +35,7 @@ FibVec::FibVec(const FibVec& fib1) {
 }
 
 size_t FibVec::capacity() const {
-	return fib[1] * sizeof(*vec);
+	return fib[1];
 };
 
 size_t FibVec::count() const {
