@@ -15,10 +15,10 @@ public:
 
 	FibVec(const FibVec& fib1);
 
-	const size_t capacity();
-	const size_t count();
+	size_t capacity() const;
+	size_t count() const;
 	void insert(int val, size_t index);
-	const int lookup(size_t index);
+	int lookup(size_t index) const;
 	void push(int val);
 	int remove(size_t index);
 	int pop();

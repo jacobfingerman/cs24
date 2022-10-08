@@ -34,15 +34,15 @@ FibVec::FibVec(const FibVec& fib1) {
 	for (size_t i = 0; i < fib1.num; i++) vec[i] = fib1.vec[i];
 }
 
-const size_t FibVec::capacity() {
+size_t FibVec::capacity() const {
 	return fib[1] * sizeof(*vec);
 };
 
-const size_t FibVec::count() {
+size_t FibVec::count() const {
 	return num;
 };
 
-const int FibVec::lookup(size_t index) {
+int FibVec::lookup(size_t index) const {
 	if (index >= num) throw std::out_of_range("index is out of range");
 	else return vec[index];
 }

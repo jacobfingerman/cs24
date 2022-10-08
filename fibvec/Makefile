@@ -1,4 +1,4 @@
-FLAGS = -Wall -Wextra -Werror -Wno-ignored-qualifiers
+FLAGS = -Wall -Wextra -Werror 
 
 test: test.o FibVec.o
 	g++ -o test test.o FibVec.o
