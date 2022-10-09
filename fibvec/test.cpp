@@ -14,17 +14,18 @@ void da(FibVec fibb) {
 }
 
 int main() {
-	int arr[13] = {0, 1,2,3,4,5, 6, 7, 8, 9, 10, 11, 12}; // 1, 1, 2, 3, 5, 8, 13
+	int arr[30];
+
+	for (int i = 0; i < 30; i++) arr[i] = i;
 	
-	FibVec baby(arr, 13);
+	FibVec baby(arr, 30);
 	FibVec p;
 
-	p.insert(42, 0);
-	da(p);
+	da(baby);
 
-	for (int i = 0; i < 40; i++) {
-		p.insert(42, i+1);
-		da(p);
+	for (int i = 0; i < 30; i++) {
+		baby.pop();
+		da(baby);
 	}
 
 

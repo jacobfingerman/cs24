@@ -5,6 +5,7 @@ private:
 	int* vec = nullptr;
 	size_t num;
 	size_t fib[2] = {1, 1}; //f_n, f_n-1
+	//0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 
 
 	void upsize(int val, size_t index);
 	void downsize(size_t ignore);
