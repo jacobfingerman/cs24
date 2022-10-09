@@ -6,7 +6,7 @@ private:
 	size_t num;
 	size_t fib[2] = {1, 1}; //f_n, f_n-1
 
-	void upsize();
+	void upsize(int val, size_t index);
 	void downsize(size_t ignore);
 
 public:

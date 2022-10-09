@@ -47,12 +47,7 @@ int FibVec::lookup(size_t index) const {
 	else return vec[index];
 }
 
-void FibVec::insert(int val, size_t index) {
-	if (index >= num) throw std::out_of_range("index is out of range");
-	else vec[index] = val;
-}
-
-void FibVec::upsize() {
+void FibVec::upsize(int val, size_t index) {
 
 	int* temp = vec;
 	size_t fibTemp;
@@ -63,17 +58,34 @@ void FibVec::upsize() {
 
 	vec = new int[fib[1]];
 
-	for (size_t i = 0; i < fib[0]; i++) {
-		vec[i] = *(temp + i);
+	for (size_t i = 0; i <= fib[0]; i++) {
+		if (i < index) vec[i] = *(temp + i);
+		else if (i != index) vec[i] = *(temp + i - 1);
 	}
+
+	vec[index] = val;
 
 	delete[] temp;
 
 }
 
+void FibVec::insert(int val, size_t index) {
+
+	if (index > num) throw std::out_of_range("index is out of range");
+	
+	if (num == fib[1]) {
+		upsize(val, index);
+	}
+	else {
+		for (size_t i = num; i > index; i--) vec[i] = vec[i - 1];
+		vec[index] = val;
+	}
+	num += 1;
+}
+
 void FibVec::push(int val) {
 	if (num == fib[1]) {
-		upsize();
+		upsize(val, num);
 	}
 
 	vec[num] = val;

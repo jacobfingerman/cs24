@@ -19,8 +19,16 @@ int main() {
 	FibVec baby(arr, 13);
 	FibVec p;
 
-	p.push(42);
+	p.insert(42, 0);
 	da(p);
+
+	for (int i = 0; i < 40; i++) {
+		p.insert(42, i+1);
+		da(p);
+	}
+
+
+
 
   return 0;
 }
