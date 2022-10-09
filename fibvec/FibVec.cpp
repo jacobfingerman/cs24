@@ -1,7 +1,6 @@
 #include "FibVec.h"
 #include <stdexcept>
 #include <cstddef>
-#include <iostream>
 
 FibVec::FibVec() { // Default empty constucter
 	vec = new int[1];
@@ -96,12 +95,9 @@ void FibVec::downsize(size_t ignore) {
 	int* temp = vec;
 	size_t fibTemp;
 
-	std::cout << "first: " << fib[0] << ", " << fib[1] << "\n";
 	fibTemp = fib[1];
 	fib[1] = fib[0];
 	fib[0] = fibTemp - fib[0];
-
-	std::cout << "sec: " << fib[0] << ", " << fib[1] << "\n";
 
 	vec = new int[fib[1]];
 	for (size_t i = 0; i < num; i++) {
