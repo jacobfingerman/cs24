@@ -91,6 +91,7 @@ List::List(List&& other) {
 	head = other.head;
 	other.head = nullptr;
 }
+
 List::~List() {
 	//Destroy linked list
 	Node* newHead;
@@ -163,16 +164,19 @@ std::string        List::remove(size_t index) {
 		std::string removed = head->data;
 		
 		delete head;
+
 		head = newHead;
 		return removed;
 	}
 	else {
 		// Links left node to right node and deletes middle
 		Node* leftNode = incNode(head, index - 1);
+		if (leftNode->next == nullptr) throw std::out_of_range("index is out of range");
+
 		Node* midNode = leftNode->next;
 
-		leftNode->next = midNode->next;
 		std::string removed = midNode->data;
+		leftNode->next = midNode->next;
 
 		delete midNode;
 		return removed;
