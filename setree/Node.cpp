@@ -202,12 +202,14 @@ void Node::upNode() {
 	if (current->right == nullptr) {
 		value = current->value;
 		left = current->left;
+		count -= 1;
 		delete current;
 	}
 	else {
 		while (current->right->right != nullptr) { current = current->right; }
 
 		value = current->right->value;
+		count -= 1;
 		Node* temp = current->right->left;
 		delete current->right;
 		current->right = temp;

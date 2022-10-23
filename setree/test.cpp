@@ -28,7 +28,12 @@ int main() {
 	set.insert(d);
 	set.insert(a);
 	set.insert(c);
+	set.insert(b);
 
+
+	set.print();
+
+	set.remove(g);
 
 	std::cout << "count: " << set.count() << "\n";
 	set.print();
