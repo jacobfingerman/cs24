@@ -52,7 +52,8 @@ void Node::printChild(size_t branches) const {
 	// Prints children recursively
 	if (branches > 0) {
 		std::cout << "(";
-		if (left == nullptr) nullTree(branches - 1);
+		if (left == nullptr) std::cout << "-";
+		//nullTree(branches - 1);
 		else left->printChild(branches - 1);
 		std::cout << " ";
 	}
@@ -61,7 +62,7 @@ void Node::printChild(size_t branches) const {
 
 	if (branches > 0) {
 		std::cout << " ";
-		if (right == nullptr) nullTree(branches - 1);
+		if (right == nullptr) std::cout << "-";
 		else right->printChild(branches - 1);
 		std::cout << ")";
 	}
@@ -143,8 +144,7 @@ size_t Node::remNode(const std::string& str) {
 	if (str > value) {
 		// Right node
 		if (right == nullptr) return 0; // Not in set
-
-		if (right->right == nullptr) {
+		else if (right->right == nullptr) {
 			if (right->left == nullptr) {
 				// No children just deletes node
 				delete right;
@@ -170,7 +170,7 @@ size_t Node::remNode(const std::string& str) {
 	else {
 		// Left node
 		if (left == nullptr) return 0; // Not in set
-		if (left->right == nullptr) {
+		else if (left->right == nullptr) {
 			if (left->left == nullptr) {
 				// No children just deletes node
 				delete left;

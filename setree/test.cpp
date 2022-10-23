@@ -22,18 +22,26 @@ int main() {
 
 
 
-	set.insert(a);
-	set.insert(b);
-	set.insert(c);
 	set.insert(d);
-	set.insert(e);
+	set.insert(b);
 	set.insert(f);
+	set.insert(e);
+	set.insert(c);
 	set.insert(g);
+	set.insert(a);
+	set.insert("a");
 
 	set.print();
 	std::cout << set.count() << "\n";
 
 	set.insert(oe);
+
+
+	set.insert("ea");
+	set.print();
+
+
+	set.remove(e);
 	set.print();
 
 	Set q = set;
@@ -41,9 +49,6 @@ int main() {
 	q.print();
 
 	set.print();
-
-
-	set.remove("asdsadsadsadsa");
 
 
 	q.print();
