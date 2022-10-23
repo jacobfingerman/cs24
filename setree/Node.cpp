@@ -140,9 +140,10 @@ size_t Node::addNode(std::string str) {
 
 size_t Node::remNode(const std::string& str) {
 	// Removes node based on children
-	if (left == nullptr && right == nullptr) return 0; // Not in set
-	else if (str > value) {
+	if (str > value) {
 		// Right node
+		if (right == nullptr) return 0; // Not in set
+
 		if (right->right == nullptr) {
 			if (right->left == nullptr) {
 				// No children just deletes node
@@ -168,6 +169,7 @@ size_t Node::remNode(const std::string& str) {
 
 	else {
 		// Left node
+		if (left == nullptr) return 0; // Not in set
 		if (left->right == nullptr) {
 			if (left->left == nullptr) {
 				// No children just deletes node

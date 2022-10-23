@@ -43,7 +43,7 @@ int main() {
 	set.print();
 
 
-	set.remove(a);
+	set.remove("asdsadsadsadsa");
 
 
 	q.print();
