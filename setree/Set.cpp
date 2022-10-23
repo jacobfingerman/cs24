@@ -6,7 +6,7 @@ Set::Set() {
 
 
 Set::Set(const Set& other) {
-	if (mRoot != nullptr) mRoot = other.mRoot->clone();
+	if (other.mRoot) mRoot = other.mRoot->clone();
 	else mRoot = nullptr;
 }
 
