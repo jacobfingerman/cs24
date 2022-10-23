@@ -22,72 +22,17 @@ int main() {
 
 	Set set;
 
+	std::cout << "count: " << set.count() << "\n";
 	set.print();
 
-	set.remove(i);
+	set.insert(d);
+	set.insert(a);
+	set.insert(c);
 
-	set.print();
-	
-/*
-	set.print();
 
-	std::cout << set.insert(c) << "\n";
-	set.print();
-
-	std::cout << set.insert(b) << "\n";
-
-	std::cout << set.insert(b) << "\n";
-	set.print();
-
-	std::cout << set.insert(e) << "\n";
-	set.print();
-
-	std::cout << set.insert(a) << "\n";
-	set.print();
-
-	std::cout << set.contains(b) << "\n";
-
-	std::cout << set.insert(a) << "\n";
-	std::cout << set.insert(d) << "\n";
-	std::cout << set.insert(f) << "\n";
-	std::cout << set.insert(g) << "\n";
-	set.print();
-
-	std::cout << set.lookup(0) << "\n";
-	std::cout << set.lookup(1) << "\n";
-	std::cout << set.lookup(2) << "\n";
-	std::cout << set.lookup(3) << "\n";
-	std::cout << set.lookup(4) << "\n";
-	std::cout << set.lookup(5) << "\n";
-	std::cout << set.lookup(6) << "\n";
-
-	set.remove("adadsasafgafsf");
-	set.print();
-
-	set.remove(a);
-	set.print();
-
-	set.remove(f);
-	set.print();
-
-	set.insert(of);
-	set.insert(oe);
-	set.insert(ot);
-	set.print();
-
-	set.remove(e);
-	set.print();
-
-	set.remove(c);
+	std::cout << "count: " << set.count() << "\n";
 	set.print();
 
 
-
-
-	std::cout << set.clear() << "\n";
-	set.print();
-
-
-*/
 	return 0;
 }
