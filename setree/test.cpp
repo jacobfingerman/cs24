@@ -22,22 +22,12 @@ int main() {
 
 	Set set;
 
-	/*
-
-
 	set.print();
 
-	set.remove(m);
+	set.remove(i);
 
 	set.print();
-	*/
-
-	set.insert("asd");
-	set.print();
-
-	set.remove("asd");
-	set.print();
-
+	
 /*
 	set.print();
 

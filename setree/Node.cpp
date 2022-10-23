@@ -190,6 +190,7 @@ void Node::upNode() {
 
 		value = right->value;
 		left = right->left;
+		count = right->count;
 
 		Node* rTemp = right->right;
 		delete right;

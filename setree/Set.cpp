@@ -88,6 +88,8 @@ const std::string& Set::lookup(size_t n) const {
 size_t Set::remove(const std::string& value) {;
 	if (mRoot == nullptr) return 0;
 
+	std::cout << value << ": " << mRoot->children() << "\n"; // DEBUG
+
 	Node* parent = mRoot->search(value, true, false);
 	if (parent == nullptr) {
 		if (mRoot->children() == 0) {
