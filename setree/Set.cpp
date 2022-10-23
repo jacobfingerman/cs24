@@ -93,7 +93,11 @@ size_t Set::remove(const std::string& value) {
 		mRoot->upNode();
 		return 1;
 	}
-	else return parent->remNode(value);
+	else if (parent->remNode(value)) return 1;
+	else {
+		mRoot->search(value, true);
+		return 0;
+	}
 }
 
 void Set::debug() { std::cout << ">:("; }

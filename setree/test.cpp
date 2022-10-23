@@ -41,7 +41,18 @@ int main() {
 	set.print();
 
 
-	set.remove(g);
+	set.remove("asddsa");
+	set.remove("asddsa");
+	set.remove("asddsa");
+	set.remove("asddsa");
+	set.remove("asddsa");
+	set.remove("asddsa");
+	set.remove("asddsa");
+	set.remove("asddsa");
+	set.remove("asddsa");
+
+	std::cout << set.count();
+
 	set.print();
 
 	Set q = set;
