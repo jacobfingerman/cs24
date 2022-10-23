@@ -20,7 +20,7 @@ public:
 	bool connected(const std::string& str) const;
 	size_t getHeight(size_t depth=0) const;
 
-	void printChild(size_t branches) const;
+	void printChild() const;
 	void clearChild();
 
 	Node* search(const std::string& str, bool sizeChange = false, bool adding = true);

@@ -48,24 +48,25 @@ size_t Node::getHeight(size_t depth) const {
 
 
 
-void Node::printChild(size_t branches) const {
+void Node::printChild() const {
 	// Prints children recursively
-	if (branches > 0) {
+	if (left != nullptr) {
 		std::cout << "(";
-		if (left == nullptr) std::cout << "-";
-		//nullTree(branches - 1);
-		else left->printChild(branches - 1);
-		std::cout << " ";
-	}
+		left->printChild();
 
-	std::cout << value;
+		std::cout << " " << value << " ";
 
-	if (branches > 0) {
-		std::cout << " ";
 		if (right == nullptr) std::cout << "-";
-		else right->printChild(branches - 1);
+		else right->printChild();
 		std::cout << ")";
 	}
+	else if (right != nullptr) {
+		std::cout << "(- " << value << " ";
+		if (right == nullptr) std::cout << "-";
+		else right->printChild();
+		std::cout << ")";
+	}
+	else std::cout << value;
 }
 
 void Node::clearChild() {

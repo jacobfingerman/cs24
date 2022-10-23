@@ -64,7 +64,7 @@ void Set::print() const {
 	//	seems more practical than dealing with keeping track
 	//  and slowing down the actual data 
 	if (mRoot == nullptr) std::cout << "-";
-	else mRoot->printChild(mRoot->getHeight());
+	else mRoot->printChild();
 
 	std::cout << "\n";
 }
