@@ -85,14 +85,20 @@ const std::string& Set::lookup(size_t n) const {
 	return mRoot->index(n);
 }
 
-size_t Set::remove(const std::string& value) {
-	return 0;
+size_t Set::remove(const std::string& value) {;
 	if (mRoot == nullptr) return 0;
 
 	Node* parent = mRoot->search(value, true, false);
 	if (parent == nullptr) {
-		mRoot->upNode();
-		return 1;
+		if (mRoot->children() == 0) {
+			delete mRoot;
+			mRoot = nullptr;
+			return 1;
+		}
+		else {
+			mRoot->upNode();
+			return 1;
+		}
 	}
 	else if (parent->remNode(value)) return 1;
 	else {

@@ -7,50 +7,36 @@
 int main() {
 	std::string a = "aa";
 	std::string	b = "bb";
-	std::string c = "bc";
+	std::string c = "cc";
 	std::string d = "dd";
 	std::string e = "ee";
 	std::string f = "ff";
 	std::string g = "gg";
-
-	std::string of = "cc";
-	std::string oe = "dz";
-	std::string ot = "dy";
-
+	std::string h = "hh";
+	std::string	i = "ii";
+	std::string j = "jj";
+	std::string k = "kk";
+	std::string l = "ll";
+	std::string m = "mm";
+	std::string n = "nn";
 
 	Set set;
 
+	/*
 
-
-	set.insert(d);
-	set.insert(b);
-	set.insert(f);
-	set.insert(e);
-	set.insert(c);
-	set.insert(g);
-	set.insert(a);
-	set.insert("a");
-
-	set.print();
-	std::cout << set.count() << "\n";
-
-	std::cout << set.remove("asdasd") << "\n";
-
-
-	set.insert("ea");
-	set.print();
-
-	set.insert("ec");
-	set.insert("eb");
-	set.insert("ed");
-	set.insert("ef");
 
 	set.print();
 
-	set.remove("eb");
+	set.remove(m);
 
 	set.print();
+	*/
 
+	set.insert("asd");
+	set.print();
+
+	set.remove("asd");
+	set.print();
 
 /*
 	set.print();

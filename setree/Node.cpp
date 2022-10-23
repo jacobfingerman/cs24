@@ -187,6 +187,7 @@ void Node::upNode() {
 	// Replaces node with next valid node in the position
 	// Then cleans up the valid node's old position
 	if (left == nullptr) {
+
 		value = right->value;
 		left = right->left;
 
