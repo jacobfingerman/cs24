@@ -40,29 +40,15 @@ int main() {
 	set.insert("ea");
 	set.print();
 
-
-	set.remove("asddsa");
-	set.remove("asddsa");
-	set.remove("asddsa");
-	set.remove("asddsa");
-	set.remove("asddsa");
-	set.remove("asddsa");
-	set.remove("asddsa");
-	set.remove("asddsa");
-	set.remove("asddsa");
-
-	std::cout << set.count();
+	set.insert("ec");
+	set.insert("eb");
+	set.insert("ed");
+	set.insert("ef");
 
 	set.print();
 
-	Set q = set;
+	set.remove("eb");
 
-	q.print();
-
-	set.print();
-
-
-	q.print();
 	set.print();
 
 
