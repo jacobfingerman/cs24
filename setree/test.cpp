@@ -20,28 +20,48 @@ int main() {
 
 	Set set;
 
-	set.print();
 
-	set.insert(c);
-	set.print();
 
-	std::cout << set.contains(b) << "\n";
-
-	set.insert(b);
-	set.print();
-
-	set.insert(e);
-	set.print();
-
-	set.insert(a);
-	set.print();
-
-	std::cout << set.contains(b) << "\n";
-
-	set.insert(a);
 	set.insert(d);
+	set.insert(b);
 	set.insert(f);
+	set.insert(a);
 	set.insert(g);
+	set.insert(c);
+	set.insert(e);
+
+	set.print();
+
+
+	Set q = set;
+
+	q.print();
+
+	set.print();
+
+/*
+	set.print();
+
+	std::cout << set.insert(c) << "\n";
+	set.print();
+
+	std::cout << set.insert(b) << "\n";
+
+	std::cout << set.insert(b) << "\n";
+	set.print();
+
+	std::cout << set.insert(e) << "\n";
+	set.print();
+
+	std::cout << set.insert(a) << "\n";
+	set.print();
+
+	std::cout << set.contains(b) << "\n";
+
+	std::cout << set.insert(a) << "\n";
+	std::cout << set.insert(d) << "\n";
+	std::cout << set.insert(f) << "\n";
+	std::cout << set.insert(g) << "\n";
 	set.print();
 
 	std::cout << set.lookup(0) << "\n";
@@ -79,6 +99,6 @@ int main() {
 	set.print();
 
 
-
+*/
 	return 0;
 }

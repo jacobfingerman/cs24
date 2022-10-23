@@ -41,7 +41,7 @@ size_t Set::insert(const std::string& value) {
 	// Insert value on tree if new
 	if (mRoot == nullptr) { 
 		mRoot = new Node(value);
-		return 0;
+		return 1;
 	}
 
 	Node* parent = mRoot->search(value, true);
