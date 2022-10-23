@@ -32,20 +32,6 @@ bool Node::connected(const std::string& str) const {
 	else if (str < value && left != nullptr) return true;
 	else return false;
 }
-size_t Node::getHeight(size_t depth) const {
-	// Finds the depth of the lowest node
-	if (left == nullptr) {
-		if (right == nullptr) return depth;
-		else return right->getHeight(depth + 1);
-	}
-	else if (right == nullptr) return left->getHeight(depth + 1);
-	else {
-		size_t r = right->getHeight(depth + 1);
-		size_t l = left->getHeight(depth + 1);
-		return (r > l) ? r : l;
-	}
-}
-
 
 
 void Node::printChild() const {
@@ -170,6 +156,7 @@ size_t Node::remNode(const std::string& str) {
 
 	else {
 		// Left node
+		std::cout << left->right;
 		if (left == nullptr) return 0; // Not in set
 		else if (left->right == nullptr) {
 			if (left->left == nullptr) {
@@ -184,7 +171,7 @@ size_t Node::remNode(const std::string& str) {
 				left = temp;
 			}
 		}
-		else if (right->left == nullptr) {
+		else if (left->left == nullptr) {
 			// Replaces with right child if only right
 			Node* temp = left->right;
 			delete left;

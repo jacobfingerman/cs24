@@ -41,7 +41,7 @@ int main() {
 	set.print();
 
 
-	set.remove(e);
+	set.remove(oe);
 	set.print();
 
 	Set q = set;

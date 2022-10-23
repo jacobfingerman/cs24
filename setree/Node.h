@@ -18,7 +18,6 @@ public:
 
 	size_t children() const;
 	bool connected(const std::string& str) const;
-	size_t getHeight(size_t depth=0) const;
 
 	void printChild() const;
 	void clearChild();
