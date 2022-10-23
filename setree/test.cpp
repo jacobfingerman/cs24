@@ -34,14 +34,14 @@ int main() {
 	set.print();
 	std::cout << set.count() << "\n";
 
-	set.insert(oe);
+	std::cout << set.remove("asdasd") << "\n";
 
 
 	set.insert("ea");
 	set.print();
 
 
-	set.remove(oe);
+	set.remove(g);
 	set.print();
 
 	Set q = set;

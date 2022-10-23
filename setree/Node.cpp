@@ -156,7 +156,6 @@ size_t Node::remNode(const std::string& str) {
 
 	else {
 		// Left node
-		std::cout << left->right;
 		if (left == nullptr) return 0; // Not in set
 		else if (left->right == nullptr) {
 			if (left->left == nullptr) {
