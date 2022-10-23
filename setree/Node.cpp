@@ -197,6 +197,15 @@ size_t Node::remNode(const std::string& str) {
 void Node::upNode() {
 	// Replaces node with next valid node in the position
 	// Then cleans up the valid node's old position
+	if (left == nullptr) {
+		value = right->value;
+		left = right->left;
+
+		Node* rTemp = right->right;
+		delete right;
+		right = rTemp;
+		return;
+	}
 	Node* current = left;
 
 	if (current->right == nullptr) {

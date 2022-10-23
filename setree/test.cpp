@@ -22,22 +22,33 @@ int main() {
 
 
 
-	set.insert(d);
-	set.insert(b);
-	set.insert(f);
 	set.insert(a);
-	set.insert(g);
+	set.insert(b);
 	set.insert(c);
+	set.insert(d);
 	set.insert(e);
+	set.insert(f);
+	set.insert(g);
 
 	set.print();
+	std::cout << set.count() << "\n";
 
+	set.insert(oe);
+	set.print();
 
 	Set q = set;
 
 	q.print();
 
 	set.print();
+
+
+	set.remove(a);
+
+
+	q.print();
+	set.print();
+
 
 /*
 	set.print();

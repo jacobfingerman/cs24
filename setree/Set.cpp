@@ -6,7 +6,8 @@ Set::Set() {
 
 
 Set::Set(const Set& other) {
-	mRoot = other.mRoot->clone();
+	if (mRoot) mRoot = other.mRoot->clone();
+	else mRoot = nullptr;
 }
 
 Set::Set(Set&& other) {
@@ -85,6 +86,8 @@ const std::string& Set::lookup(size_t n) const {
 }
 
 size_t Set::remove(const std::string& value) {
+	if (mRoot == nullptr) return 0;
+
 	Node* parent = mRoot->search(value, true, false);
 	if (parent == nullptr) {
 		mRoot->upNode();
