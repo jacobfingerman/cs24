@@ -207,7 +207,7 @@ void Node::upNode() {
 	}
 	else {
 		while (current->right->right != nullptr) { 
-                       current -= 1;
+                       current->count -= 1;
                        current = current->right; 
         }
 
