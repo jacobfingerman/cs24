@@ -206,7 +206,10 @@ void Node::upNode() {
 		delete current;
 	}
 	else {
-		while (current->right->right != nullptr) { current = current->right; }
+		while (current->right->right != nullptr) { 
+                       current -= 1;
+                       current = current->right; 
+        }
 
 		value = current->right->value;
 		count -= 1;
