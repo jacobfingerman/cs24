@@ -25,19 +25,44 @@ int main() {
 	std::cout << "count: " << set.count() << "\n";
 	set.print();
 
-	set.insert(d);
+	set.insert(n);
 	set.insert(a);
+	set.insert(g);
+	set.insert(f);
+	set.insert(d);
+	set.insert(e);
 	set.insert(c);
 	set.insert(b);
-
-
-	set.print();
-
-	set.remove(g);
+	set.insert(m);
+	set.insert(k);
+	set.insert(l);
+	set.insert(i);
+	set.insert(j);
 
 	std::cout << "count: " << set.count() << "\n";
 	set.print();
 
+
+	set.remove(c);
+	set.remove(i);
+
+	std::cout << "count: " << set.count() << "\n";
+	set.print();
+
+	set.remove(f);
+	set.remove(h);
+
+	std::cout << "count: " << set.count() << "\n";
+	set.print();
+
+	set.remove(n);
+
+	set.print();
+
+	set.remove(a);
+
+	std::cout << "count: " << set.count() << "\n";
+	set.print();
 
 	return 0;
 }

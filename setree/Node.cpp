@@ -207,8 +207,8 @@ void Node::upNode() {
 	}
 	else {
 		while (current->right->right != nullptr) { 
-                       current->count -= 1;
-                       current = current->right; 
+			current->count -= 1;
+			current = current->right; 
         }
 
 		value = current->right->value;
