@@ -1,11 +1,26 @@
 #include "AST.h"
+#include "Nodes.h"
+#include "Stack.h"
 #include <iostream>
+
 
 // If you want a different main function, write it here!
 // This file won't be graded - do whatever you want.
 
+
 int main() {
-  std::cout << "This program doesn't do anything yet...\n";
+	
+	std::string st = "+12 3 + 5 4 + 2 / *";
+
+
+	AST* ast = nullptr;
+
+	ast = AST::parse(st);
+
+	std::cout << ast->prefix() << "\n";
+	std::cout << ast->postfix() << "\n";
+	std::cout << ast->value() << "\n";
+
 
   return 0;
 }
