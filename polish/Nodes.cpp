@@ -12,7 +12,6 @@
 
 // ==============   NumNode   =====================================
 NumNode::NumNode(double num) { val = num; }
-NumNode::~NumNode() { delete this; }
 
 std::string NumNode::prefix()  const {
 	std::string unround = std::to_string(val);
@@ -33,7 +32,7 @@ double      NumNode::value()   const { return val; }
 // ==============   ExpNode   =====================================
 
 ExpNode::ExpNode(char exp, AST* r, AST* l) { val = exp; left = l; right = r; }
-ExpNode::~ExpNode() { delete left; delete right; delete this; }
+ExpNode::~ExpNode() { delete left; delete right; }
 
 std::string ExpNode::prefix()  const { 
 	if (val == '~') return "~ " + right->prefix();

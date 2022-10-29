@@ -13,7 +13,7 @@ class NumNode : public AST {
 public:
 	NumNode(double num);
 	// Virtual destructor:
-	~NumNode();
+	~NumNode() {}
 
 	// Member functions for output:
 	std::string prefix()  const;
@@ -34,8 +34,6 @@ public:
 	std::string prefix()  const;
 	std::string postfix() const;
 	double      value()   const;
-public:
-	size_t space() const;
 };
 
 #endif
