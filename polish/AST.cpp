@@ -4,7 +4,7 @@
 #include <sstream>
 
 AST* AST::parse(const std::string& expression) {
-	char exp[5] = { '+', '-', '*', '/', '%' };
+	const char exp[5] = { '+', '-', '*', '/', '%' };
 
 	Stack stack;
 	std::istringstream stream(expression);
@@ -20,6 +20,7 @@ AST* AST::parse(const std::string& expression) {
 					if (!right || !left) {
 						delete right;
 						delete left;
+						stack.shred();
 						throw std::runtime_error("Not enough operands.");
 					}
 
@@ -30,21 +31,29 @@ AST* AST::parse(const std::string& expression) {
 			}
 			if (token[0] == '~') {
 				AST* right = stack.pop();
-				if (!right) throw std::runtime_error("Not enough operands.");
+				if (!right) {
+					stack.shred();
+					throw std::runtime_error("Not enough operands.");
+				}
 					
 
 				else stack.push(new ExpNode(token[0], right));
 
 				goto LOOP;
 			}
-
 		}
 
 		// Checks if 2 decimals or weird characters after 1st char (could be +/-)
 		bool dot = false;
 		for (std::string::iterator it = token.begin() + 1; it != token.end(); ++it) {
-			if (*it == '.') { if (!(dot ^= 1)) throw std::runtime_error("Invalid token: " + token);}
-			else if (*it > '9' || *it < '0') throw std::runtime_error("Invalid token: " + token);
+			if (*it == '.') {if (!(dot ^= 1)) {
+					stack.shred();
+					throw std::runtime_error("Invalid token: " + token);
+				}}
+			else if (*it > '9' || *it < '0') {
+				stack.shred();
+				throw std::runtime_error("Invalid token: " + token);
+			}
 		}
 
 		// If 1st char is +/-, works fine, but alphabet doesn't work
@@ -54,6 +63,7 @@ AST* AST::parse(const std::string& expression) {
 			throw std::runtime_error("Invalid token: " + token);
 		}
 	}
+
 
 	if (stack.size() == 0) throw std::runtime_error("No input.");
 	if (stack.size() > 1) {
