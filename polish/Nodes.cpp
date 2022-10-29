@@ -16,14 +16,16 @@ NumNode::NumNode(double num) { val = num; }
 std::string NumNode::prefix()  const {
 	std::string unround = std::to_string(val);
 	for (size_t i = unround.size(); i > 0; i--) {
-		if (unround[i - 1] != '0' && unround[i - 1] != '.')  return unround.substr(0, i);
+		if (unround[i - 1] == '.') return unround.substr(0, i - 1);
+		if (unround[i - 1] != '0') return unround.substr(0, i);
 	}
 	return "0";
 }
 std::string NumNode::postfix() const {
 	std::string unround = std::to_string(val);
 	for (size_t i = unround.size(); i > 0; i--) {
-		if (unround[i - 1] != '0' && unround[i - 1] != '.')  return unround.substr(0, i);
+		if (unround[i - 1] == '.') return unround.substr(0, i - 1);
+		if (unround[i - 1] != '0') return unround.substr(0, i);
 	}
 	return "0";
 }

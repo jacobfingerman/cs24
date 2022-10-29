@@ -10,9 +10,9 @@
 
 int main() {
 	
-	std::string st = "+12.2 2.8 + 5 4 + 2 / *";
+	/*std::string st = "+10 2.8 + 5 4 + 2 / *";*/
 
-	//std::string st = "0";
+	std::string st = "10";
 
 	AST* ast = nullptr;
 
