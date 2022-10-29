@@ -14,14 +14,26 @@
 NumNode::NumNode(double num) { val = num; }
 NumNode::~NumNode() { return; }
 
-std::string NumNode::prefix()  const { return std::to_string(val); }
-std::string NumNode::postfix() const { return std::to_string(val); }
+std::string NumNode::prefix()  const {
+	std::string unrounded = std::to_string(val);
+	for (size_t i = unrounded.size(); i > 0; i--) {
+		if (unrounded[i - 1] != '0') return unrounded.substr(0, i - 1);
+	}
+	return "0";
+}
+std::string NumNode::postfix() const {
+	std::string unrounded = std::to_string(val);
+	for (size_t i = unrounded.size(); i > 0; i--) {
+		if (unrounded[i - 1] != '0') return unrounded.substr(0, i - 1);
+	}
+	return "0";
+}
 double      NumNode::value()   const { return val; }
 
 // ==============   ExpNode   =====================================
 
 ExpNode::ExpNode(char exp, AST* r, AST* l) { val = exp; left = l; right = r; }
-ExpNode::~ExpNode() { return; }
+ExpNode::~ExpNode() { delete left; delete right; }
 
 std::string ExpNode::prefix()  const { 
 	if (val == '~') return "~ " + right->prefix();
