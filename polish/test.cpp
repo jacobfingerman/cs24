@@ -10,8 +10,9 @@
 
 int main() {
 	
-	std::string st = "+12 3 + 5 4 + 2 / *";
+	std::string st = "+12.2 2.8 + 5 4 + 2 / *";
 
+	//std::string st = "0";
 
 	AST* ast = nullptr;
 
@@ -20,6 +21,8 @@ int main() {
 	std::cout << ast->prefix() << "\n";
 	std::cout << ast->postfix() << "\n";
 	std::cout << ast->value() << "\n";
+
+
 
 
   return 0;

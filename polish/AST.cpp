@@ -17,7 +17,11 @@ AST* AST::parse(const std::string& expression) {
 				if (token[0] == exp[i]) {
 					AST* right = stack.pop();
 					AST* left = stack.pop();
-					if (!right || !left) throw std::runtime_error("Not enough operands.");
+					if (!right || !left) {
+						delete right;
+						delete left;
+						throw std::runtime_error("Not enough operands.");
+					}
 
 					else stack.push(new ExpNode(token[0], right, left));
 
@@ -27,6 +31,7 @@ AST* AST::parse(const std::string& expression) {
 			if (token[0] == '~') {
 				AST* right = stack.pop();
 				if (!right) throw std::runtime_error("Not enough operands.");
+					
 
 				else stack.push(new ExpNode(token[0], right));
 
@@ -44,11 +49,17 @@ AST* AST::parse(const std::string& expression) {
 
 		// If 1st char is +/-, works fine, but alphabet doesn't work
 		try { stack.push(new NumNode(stod(token))); }
-		catch (...) { throw std::runtime_error("Invalid token: " + token); }
+		catch (...) {
+			stack.shred();
+			throw std::runtime_error("Invalid token: " + token);
+		}
 	}
 
 	if (stack.size() == 0) throw std::runtime_error("No input.");
-	if (stack.size() > 1)  throw std::runtime_error("Too many operands.");
+	if (stack.size() > 1) {
+		stack.shred();
+		throw std::runtime_error("Too many operands.");
+	}
 
 	return stack.top();
 }

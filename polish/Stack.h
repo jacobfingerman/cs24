@@ -24,6 +24,8 @@ public:
 	Stack();
 	~Stack();
 
+	void shred();
+
 	bool empty() const;
 	size_t size() const;
 	AST* top() const;

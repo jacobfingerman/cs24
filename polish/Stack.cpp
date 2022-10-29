@@ -12,6 +12,10 @@ Stack::~Stack() {
 }
 
 
+void Stack::shred() {
+	while (!empty()) { delete pop(); }
+}
+
 bool Stack::empty() const { return (count == 0); }
 size_t Stack::size() const { return count; }
 AST* Stack::top() const { return head->node;  }
