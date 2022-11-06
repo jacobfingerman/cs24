@@ -65,7 +65,7 @@ Person::~Person() {
     }
     else {
         for (auto it = cTrees.begin(); it != cTrees.end(); ++it) {
-            if ((*it)->dad) (*it)->mom->cPop(this);
+            if ((*it)->dad) (*it)->dad->cPop(this);
             delete* it;
         }
     }
