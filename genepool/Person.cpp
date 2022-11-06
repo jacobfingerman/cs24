@@ -23,7 +23,7 @@ std::set<Person*> Person::removeGender(std::set<Person*> input, Gender gen) {
     auto it = output.begin();
 
     while (it != output.end()) {
-        if ((*it)->gender() == Gender::FEMALE) it = output.erase(it);
+        if ((*it)->gender() == gen) it = output.erase(it);
         else ++it;
     }
 
@@ -168,13 +168,14 @@ std::set<Person*> Person::parsib(PMod pmod, SMod smod) {
     return setUn(pParsib, mParsib);
 }
 
-
-std::set<Person*> Person::aunts(PMod pmod, SMod smod) {
+std::set<Person*> Person::uncles(PMod pmod, SMod smod) {
     return removeGender(parsib(pmod, smod), Gender::FEMALE);
 }
-std::set<Person*> Person::uncles(PMod pmod, SMod smod) {
+
+std::set<Person*> Person::aunts(PMod pmod, SMod smod) {
     return removeGender(parsib(pmod, smod), Gender::MALE);
 }
+
 
 // Grandparents
 
@@ -310,11 +311,23 @@ std::set<Person*> Person::cousins(PMod pmod, SMod smod) {
     return output;
 }
 
+// Nephew/Niece
+
 std::set<Person*> Person::nephews(PMod pmod, SMod smod) {
-    return removeGender(cousins(pmod, smod), Gender::FEMALE);
+    std::set<Person*> sibs = siblings(pmod, smod);
+    std::set<Person*> output;
+    for (auto it = sibs.begin(); it != sibs.end(); ++it) {
+        output = setUn((*it)->sons(), output);
+    }
+    return output;
 }
 std::set<Person*> Person::nieces(PMod pmod, SMod smod) {
-    return removeGender(cousins(pmod, smod), Gender::MALE);
+    std::set<Person*> sibs = siblings(pmod, smod);
+    std::set<Person*> output;
+    for (auto it = sibs.begin(); it != sibs.end(); ++it) {
+        output = setUn((*it)->daughters(), output);
+    }
+    return output;
 }
 
 
