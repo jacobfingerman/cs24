@@ -7,6 +7,8 @@
 #include <iostream>
 #include <stdexcept>
 #include <vector>
+#include <string>
+#include <sstream>
 
 // This file provides a standard main loop.
 // You can edit it if you want, but you shouldn't need to.
@@ -23,6 +25,8 @@ struct Compare {
     return a->name() < b->name();
   }
 };
+
+
 
 
 int main(int argc, char** argv) {
