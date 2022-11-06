@@ -162,8 +162,8 @@ std::set<Person*> Person::parents(PMod pmod) {
 std::set<Person*> Person::parsib(PMod pmod, SMod smod) {
     std::set<Person*> pParsib;
     std::set<Person*> mParsib;
-    if (_father && pmod != PMod::MATERNAL) pParsib = _father->siblings(pmod, smod);
-    if (_mother && pmod != PMod::PATERNAL) mParsib = _mother->siblings(pmod, smod);
+    if (_father && pmod != PMod::MATERNAL) pParsib = _father->siblings(PMod::ANY, smod);
+    if (_mother && pmod != PMod::PATERNAL) mParsib = _mother->siblings(PMod::ANY, smod);
 
     return setUn(pParsib, mParsib);
 }
@@ -246,13 +246,13 @@ std::set<Person*> Person::grandchildren() {
     return output;
 }
 
-std::set<Person*> Person::granddaughters() {
+std::set<Person*> Person::grandsons() {
     return removeGender(grandchildren(), Gender::FEMALE);
 }
-std::set<Person*> Person::grandsons() {
+
+std::set<Person*> Person::granddaughters() {
     return removeGender(grandchildren(), Gender::MALE);
 }
-
 
 // Siblings
 
