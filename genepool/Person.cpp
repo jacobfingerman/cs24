@@ -207,12 +207,12 @@ std::set<Person*> Person::children(ParentTree* exclude) {
     return output;
 }
 
-std::set<Person*> Person::sons(ParentTree* exclude) {
-    return removeGender(children(exclude), Gender::FEMALE);
+std::set<Person*> Person::sons() {
+    return removeGender(children(), Gender::FEMALE);
 }
 
-std::set<Person*> Person::daughters(ParentTree* exclude) {
-    return removeGender(children(exclude), Gender::MALE);
+std::set<Person*> Person::daughters() {
+    return removeGender(children(), Gender::MALE);
 }
 
 std::set<Person*> Person::descendants() {

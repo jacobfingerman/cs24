@@ -53,7 +53,7 @@ public:
   std::set<Person*> brothers(PMod pmod = PMod::ANY, SMod smod = SMod::ANY);
   std::set<Person*> children(ParentTree* exclude = nullptr);
   std::set<Person*> cousins(PMod pmod = PMod::ANY, SMod smod = SMod::ANY);
-  std::set<Person*> daughters(ParentTree* exclude = nullptr);
+  std::set<Person*> daughters();
   std::set<Person*> descendants();
   std::set<Person*> grandchildren();
   std::set<Person*> granddaughters();
@@ -66,7 +66,7 @@ public:
   std::set<Person*> parents(PMod pmod = PMod::ANY);
   std::set<Person*> siblings(PMod pmod = PMod::ANY, SMod smod = SMod::ANY);
   std::set<Person*> sisters(PMod pmod = PMod::ANY, SMod smod = SMod::ANY);
-  std::set<Person*> sons(ParentTree* exclude = nullptr);
+  std::set<Person*> sons();
   std::set<Person*> uncles(PMod pmod = PMod::ANY, SMod smod = SMod::ANY);
 
   // Other Member Functions
