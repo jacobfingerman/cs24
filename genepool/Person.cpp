@@ -199,6 +199,15 @@ std::set<Person*> Person::grandmothers(PMod pmod) {
 
 // Children
 
+std::set<Person*> Person::children() {
+    std::set<Person*> output;
+    for (auto it = cTrees.begin(); it != cTrees.end(); ++it) {
+        output = setUn((*it)->children, output);
+    }
+    return output;
+}
+
+
 std::set<Person*> Person::children(ParentTree* exclude) {
     std::set<Person*> output;
     for (auto it = cTrees.begin(); it != cTrees.end(); ++it) {
