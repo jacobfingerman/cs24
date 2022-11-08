@@ -1,5 +1,9 @@
 #include "Heap.h"
+<<<<<<< HEAD
 #include <iostream>
+=======
+#include <stdexcept>
+>>>>>>> 4495059707af37966440dc573ced8ce9302dcdde
 
 // ====== Handling ================================
 
