@@ -1,4 +1,5 @@
 #include "Heap.h"
+#include <iostream>
 
 // ====== Handling ================================
 
@@ -9,6 +10,12 @@ Heap::Heap(size_t capacity) {
 }
 
 Heap::Heap(const Heap& other) {
+	delete[] mData;
+	mCapacity = other.mCapacity;
+	mCount = other.mCount;
+
+	mData = new Entry[mCapacity];
+
 	for (size_t i = 0; i < mCount; i++) {
 		mData[i] = other.mData[i];
 	}
