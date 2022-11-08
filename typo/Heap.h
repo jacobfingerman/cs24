@@ -3,7 +3,6 @@
 
 #include <cstddef>
 #include <string>
-#include <stdexcept>
 
 // This is the heap class you need to implement.
 // It's a binary min-heap that stores its entries in an array.
