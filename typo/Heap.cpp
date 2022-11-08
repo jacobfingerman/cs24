@@ -1,4 +1,5 @@
 #include "Heap.h"
+#include <stdexcept>
 
 // ====== Handling ================================
 
