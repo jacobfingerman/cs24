@@ -36,7 +36,7 @@ Heap Dictionary::correct(const std::vector<Point>& points, size_t maxcount, floa
         // How to add to heap (if at all)
 
         if (score < cutoff) continue;
-        else if (heap.capacity() == heap.count()) {
+        else if (heap.count() == heap.capacity()) {
             if (score < heap.top().score) continue;
             else heap.pushpop(*it, score);
         }

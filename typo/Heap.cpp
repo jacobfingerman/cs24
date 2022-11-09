@@ -1,6 +1,5 @@
 #include "Heap.h"
 #include <stdexcept>
-
 // ====== Handling ================================
 
 Heap::Heap(size_t capacity) {
@@ -71,7 +70,7 @@ LOOP:
 		i = 2 * i + 1;
 		goto LOOP;
 	}
-	else if (2 * i + 2 < mCount && mData[i].score > mData[2 * i + 1].score) {
+	else if (2 * i + 2 < mCount && mData[i].score > mData[2 * i + 2].score) {
 		Entry temp = mData[i];
 		mData[i] = mData[2 * i + 2];
 		mData[2 * i + 2] = temp;
@@ -97,7 +96,7 @@ Heap::Entry  Heap::pushpop(const std::string& value, float score) {
 	// Perc
 	size_t i = 0;
 LOOP:
-	if (2 * i + 1 < mCount && mData[i].score > mData[2 * i + 1].score) {
+		if (2 * i + 1 < mCount && mData[i].score > mData[2 * i + 1].score) {
 		if (2 * i + 2 < mCount && mData[2 * i + 1].score > mData[2 * i + 2].score) {
 			Entry temp = mData[i];
 			mData[i] = mData[2 * i + 2];
@@ -112,7 +111,7 @@ LOOP:
 		i = 2 * i + 1;
 		goto LOOP;
 	}
-	else if (2 * i + 2 < mCount && mData[i].score > mData[2 * i + 1].score) {
+	else if (2 * i + 2 < mCount && mData[i].score > mData[2 * i + 2].score) {
 		Entry temp = mData[i];
 		mData[i] = mData[2 * i + 2];
 		mData[2 * i + 2] = temp;
