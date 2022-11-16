@@ -5,6 +5,7 @@
 
 #include <istream>
 #include <vector>
+#include <string>
 
 class StarMap {
 public:
@@ -13,7 +14,7 @@ public:
 
 private:
     // Member Variables
-
+    std::vector<Star> map;
 public:
     // Constructor & Destructor
     StarMap(std::istream& stream);
