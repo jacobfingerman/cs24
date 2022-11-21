@@ -2,6 +2,7 @@
 #define STARMAP_H
 
 #include "Star.h"
+#include "Helpers.h"
 
 #include <istream>
 #include <vector>
@@ -14,7 +15,7 @@ public:
 
 private:
     // Member Variables
-    std::vector<Star> map;
+    RTree map;
 public:
     // Constructor & Destructor
     StarMap(std::istream& stream);
