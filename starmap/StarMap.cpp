@@ -16,7 +16,7 @@ StarMap::StarMap(std::istream& stream) {
         star.y = stof(line.substr(inds[0], inds[1]));
         star.z = stof(line.substr(inds[1], line.size()));
 
-        map.push_back(star);
+        map.insert(std::pair<float, Star>(star.x, star));
         i++;
     }
 
@@ -41,13 +41,15 @@ StarMap* StarMap::create(std::istream& stream) {
 std::vector<Star> StarMap::find(size_t n, float x, float y, float z) {
     Heap heap(n);
 
-    for (auto it = map.begin(); it < map.end(); ++it) {
+    float d = (y * y + z * z);
+
+    for (auto it = map.lower_bound(x - d); it != map.end(); ++it) {
 
         // Score calculation
 
-        float dx = it->x - x;
-        float dy = it->y - y;
-        float dz = it->z - z;
+        float dx = (it->second.x) - x;
+        float dy = (it->second.y) - y;
+        float dz = (it->second.z) - z;
 
         float score = dx * dx + dy * dy + dz * dz;
 
@@ -55,9 +57,9 @@ std::vector<Star> StarMap::find(size_t n, float x, float y, float z) {
 
         if (heap.count() == heap.capacity()) {
             if (score > heap.top().score) continue;
-            else heap.pushpop(*it, score);
+            else heap.pushpop(it->second, score);
         }
-        else heap.push(*it, score);
+        else heap.push(it->second, score);
         
     }
 

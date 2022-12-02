@@ -4,8 +4,15 @@
 #include "Star.h"
 
 #include <istream>
-#include <vector>
+#include <map>
+#include<vector>
 #include <string>
+
+struct cmp {
+    bool operator() (Star a, Star b) const {
+        return a.x < a.y;
+    }
+};
 
 class StarMap {
 public:
@@ -14,7 +21,7 @@ public:
 
 private:
     // Member Variables
-    std::vector<Star> map;
+    std::map<float, Star> map;
 public:
     // Constructor & Destructor
     StarMap(std::istream& stream);
