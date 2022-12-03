@@ -1,7 +1,6 @@
 #include "Atlas.h"
 
 
-
 Atlas::Atlas(std::istream& stream) {
 	mapping = Mapper();
 
@@ -12,10 +11,11 @@ Atlas::Atlas(std::istream& stream) {
 		words >> word1;
 
 		if (word1 == "BUS:" || word1 == "TRAIN:") {
-			std::string name = "";
-			while (words >> std::ws >> word1) { name += " " + word1; }
+			std::string lineName = "";
+			words >> std::ws >> lineName;
+			
+			while (words >> std::ws >> word1) { lineName += " " + word1; }
 
-			std::string lineName = name;
 			while (getline(stream, line) && line[0] != '-') {}
 
 			std::string currTime;
