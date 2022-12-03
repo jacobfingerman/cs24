@@ -1,8 +1,30 @@
 #include "Atlas.h"
+#include "Helpers.h"
 
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
+//
+//int main() {
+//
+//	Atlas* atlas = nullptr;
+//	std::ifstream file("data/chessboard.txt");
+//	atlas = Atlas::create(file);
+//
+//
+//
+//	Trip trip = atlas->route("A1", "H8");
+//
+//	std::cout << "Start at " << trip.start << '\n';
+//	for(const Trip::Leg& leg: trip.legs) {
+//	    std::cout << " - " << leg.line << " to " << leg.stop << '\n';
+//	}
+//
+//	delete atlas;
+//
+//	return 0;
+//}
+
 
 int main(int argc, char** argv) {
     if(argc != 2) {
