@@ -13,7 +13,7 @@ Atlas::Atlas(std::istream& stream) {
 
 		if (word1 == "BUS:" || word1 == "TRAIN:") {
 			std::string name = "";
-			while (words >> word1) { name += " " + word1; }
+			while (words >> std::ws >> word1) { name += " " + word1; }
 
 			std::string lineName = name;
 			while (getline(stream, line) && line[0] != '-') {}
@@ -22,7 +22,7 @@ Atlas::Atlas(std::istream& stream) {
 			std::string currName;
 			std::istringstream words(line);
 			words >> currTime >> currTime >> currName;
-			while (words >> word1) { currName += " " + word1; }
+			while (words >> std::ws >> word1) { currName += " " + word1; }
 
 			mapping.add(currName);
 
@@ -36,7 +36,7 @@ Atlas::Atlas(std::istream& stream) {
 
 				std::istringstream words(line);
 				words >> currTime >> currTime >> currName;
-				while (words >> word1) { currName += " " + word1; }
+				while (words >> std::ws >> word1) { currName += " " + word1; }
 				mapping.insert(currName, lastName,
 					lineName, std::stoi(currTime) - std::stoi(lastTime));
 			}
