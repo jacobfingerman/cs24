@@ -20,7 +20,7 @@ private:
 public:
   // Constructor & Destructor
   Atlas(std::istream& stream);
-  ~Atlas() {}
+  ~Atlas();
 
   // Required Member Function
   Trip route(const std::string& src, const std::string& dst);
