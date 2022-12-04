@@ -46,6 +46,7 @@ public:
 	Mapper& operator=(const Mapper&) = default;
 
 	size_t size() const { return mapping.size(); }
+    paired end() { return mapping.end(); }
 
 	void add(std::string name);
 	void insert(const std::string& name, const std::string& last, std::string line, int weight);

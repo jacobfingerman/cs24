@@ -63,6 +63,10 @@ Trip Atlas::route(const std::string& src, const std::string& dst) {
 	paired source = mapping.find(src);
 	paired dest = mapping.find(dst);
 
+	if (source == mapping.end() || source == mapping.end()) {
+		throw std::runtime_error("No route.");
+	}
+
 	Entry curr(&source->second, 0);
 	heap.push(&source->second, 0);
 	dist[source->second.id].first = 0;
