@@ -64,13 +64,12 @@ Atlas* Atlas::create(std::istream& stream) {
   return new Atlas(stream);
 }
 
-
 Trip Atlas::route(const std::string& src, const std::string& dst) {
 	// Finds shortest route between stations
 
 	size_t statCount = mapping.size();
 	std::vector<std::pair<int, Station::Edge>> dist(statCount, {MAXINT, Station::Edge()});
-	Heap heap(800000);
+	Heap heap(80000);
 	paired source = mapping.find(src);
 	paired dest = mapping.find(dst);
 
@@ -85,7 +84,6 @@ Trip Atlas::route(const std::string& src, const std::string& dst) {
 	dist[source->second.id].first = 0;
 	
 	while (heap.count()) { // Loop through edges
-
 		Station* current = heap.pop().station;
 
 		if (current == &dest->second) break; // Shortest route has been found

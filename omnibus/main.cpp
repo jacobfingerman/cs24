@@ -41,15 +41,15 @@ int main() {
 
 		try{ 
 			Trip trip = atlas->route(st1, st2); 
-			std::cout << "Start at " << trip.start << '\n';
+			/*std::cout << "Start at " << trip.start << '\n';
 			for (const Trip::Leg& leg : trip.legs) {
 				std::cout << " - " << leg.line << " to " << leg.stop << '\n';
 			}
-			std::cout << "\n";
+			std::cout << "\n";*/
 		}
 	    catch(const std::exception& e) {
-			std::cout << st1 << " -> " << st2 << "\n";
-	        std::cout << "Error: " << e.what() << "\n\n";
+			/*std::cout << st1 << " -> " << st2 << "\n";
+	        std::cout << "Error: " << e.what() << "\n\n";*/
 	    }
 		
 	}
