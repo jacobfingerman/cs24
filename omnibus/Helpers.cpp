@@ -14,6 +14,7 @@ Mapper::Mapper(Mapper&& other) {
 
 
 void Mapper::add(std::string name) {
+	// Adds new empty station into mapping
 	if (mapping.find(name) == mapping.end()) {
 		Station stat;
 		stat.id = mapping.size();
@@ -24,6 +25,7 @@ void Mapper::add(std::string name) {
 }
 
 void Mapper::insert(const std::string& name, const std::string& last, std::string line, int weight) {
+	// Inserts station/edge into mapping
 	Station::Edge newEdge;
 
 	newEdge.line = line;
@@ -32,6 +34,7 @@ void Mapper::insert(const std::string& name, const std::string& last, std::strin
 
 	auto namePos = mapping.find(name);
 
+	// Adds edge from current to last (and creates station)
 	if (namePos != mapping.end()) namePos->second.edges.push_back(newEdge);
 	else {
 		Station stat;
@@ -41,6 +44,7 @@ void Mapper::insert(const std::string& name, const std::string& last, std::strin
 		names.push_back(name);
 	}
 
+	// Adds edge from last to current
 	newEdge.connection = &namePos->second;
 	mapping[last].edges.push_back(newEdge);
 }

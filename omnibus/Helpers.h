@@ -1,8 +1,8 @@
 #ifndef HELPERS_H
 #define HELPERS_H
 
-#define MAXNAMES 100000
-#define MAXHASH 500000
+#define MAXNAMES 40000
+#define MAXHASH 80000
 #define MAXINT 2147483647
 
 #define paired std::unordered_map<std::string, Station>::iterator
@@ -30,7 +30,7 @@ struct Station {
     size_t id;
 
     Station() {
-        edges.reserve(64);
+        edges.reserve(512);
         id = -1;
     }
 
