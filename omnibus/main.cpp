@@ -13,7 +13,7 @@ int main() {
 	atlas = Atlas::create(file);
 
 	srand(1);
-	int max = 100;
+	int max = 200;
 
 	for (size_t i = 0; i < 100; i++) {
 		std::string b = std::to_string(rand() % max + 1);
@@ -33,6 +33,7 @@ int main() {
 		
 	}
 	
+
 	std::cout << "\n all good";
 
 	/*std::cout << "Start at " << trip.start << '\n';

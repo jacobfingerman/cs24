@@ -54,7 +54,6 @@ Atlas* Atlas::create(std::istream& stream) {
   return new Atlas(stream);
 }
 
-
 Trip Atlas::route(const std::string& src, const std::string& dst) {
 
 	size_t statCount = mapping.size();
@@ -63,7 +62,7 @@ Trip Atlas::route(const std::string& src, const std::string& dst) {
 	paired source = mapping.find(src);
 	paired dest = mapping.find(dst);
 
-	if (source == mapping.end() || source == mapping.end()) {
+	if (source == mapping.end() || dest == mapping.end()) {
 		throw std::runtime_error("No route.");
 	}
 
@@ -75,7 +74,7 @@ Trip Atlas::route(const std::string& src, const std::string& dst) {
 
 		Station* current = heap.pop().station;
 
-		//if (current == &dest->second) break;
+		if (current == &dest->second) break;
 
 		for (auto it = current->edges.begin(); it < current->edges.end(); ++it) {
 			Station* next = it->connection;
@@ -90,12 +89,14 @@ Trip Atlas::route(const std::string& src, const std::string& dst) {
 				else heap.push(next, dist[next->id].first);
 			}
 		}
-
 	}
+	
+
+	
 
 	if (!dist[dest->second.id].second.connection) throw std::runtime_error("No route.");
 
-
+	
 	Trip output;
 	output.start = source->first;
 	output.legs.reserve(statCount);
