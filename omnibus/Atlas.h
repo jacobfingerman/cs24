@@ -24,6 +24,7 @@ public:
 
   // Required Member Function
   Trip route(const std::string& src, const std::string& dst);
+  std::string find(size_t ind) { return mapping.find(ind); }
 };
 
 #endif

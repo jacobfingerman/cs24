@@ -85,7 +85,7 @@ Trip Atlas::route(const std::string& src, const std::string& dst) {
 
 		Station* current = heap.pop().station;
 
-		//if (current == &dest->second) break; // Shortest route has been found
+		if (current == &dest->second) break; // Shortest route has been found
 
 		for (auto it = current->edges.begin(); it < current->edges.end(); ++it) {
 			Station* next = it->connection;
