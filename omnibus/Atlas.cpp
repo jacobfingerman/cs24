@@ -59,7 +59,7 @@ Trip Atlas::route(const std::string& src, const std::string& dst) {
 
 	size_t statCount = mapping.size();
 	std::vector<std::pair<int, Station::Edge>> dist(statCount, {MAXINT, Station::Edge()});
-	Heap heap(MAXHASH);
+	Heap heap(800000);
 	paired source = mapping.find(src);
 	paired dest = mapping.find(dst);
 
@@ -86,8 +86,7 @@ Trip Atlas::route(const std::string& src, const std::string& dst) {
 				dist[next->id].second = *it;
 				dist[next->id].second.connection = current;
 
-				if (heap.count() == statCount) heap.pushpop(next, dist[next->id].first);
-				else heap.push(next, dist[next->id].first);
+				heap.push(next, dist[next->id].first);
 			}
 		}
 	}
