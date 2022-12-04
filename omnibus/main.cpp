@@ -4,77 +4,77 @@
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
-//
-//int main() {
-//
-//	Atlas* atlas = nullptr;
-//	std::ifstream file("data/chessboard.txt");
-//	atlas = Atlas::create(file);
-//
-//
-//
-//	Trip trip = atlas->route("A1", "H8");
-//
-//	std::cout << "Start at " << trip.start << '\n';
-//	for(const Trip::Leg& leg: trip.legs) {
-//	    std::cout << " - " << leg.line << " to " << leg.stop << '\n';
-//	}
-//
-//	delete atlas;
-//
-//	return 0;
-//}
+
+int main() {
+
+	Atlas* atlas = nullptr;
+	std::ifstream file("data/zodiac.txt");
+	atlas = Atlas::create(file);
 
 
-int main(int argc, char** argv) {
-    if(argc != 2) {
-        std::cout << "USAGE: " << argv[0] << " [data-file]\n";
-        std::exit(1);
-    }
 
-    Atlas* atlas = nullptr;
-    try {
-        std::ifstream file(argv[1]);
-        if(file.fail()) {
-            throw std::runtime_error("Could not open file.");
-        }
+	Trip trip = atlas->route("Virgo", "Taurus");
 
-        atlas = Atlas::create(file);
-    }
-    catch(const std::exception& e) {
-        std::cout << "Error reading file: " << e.what() << '\n';
-        std::exit(1);
-    }
+	std::cout << "Start at " << trip.start << '\n';
+	for(const Trip::Leg& leg: trip.legs) {
+	    std::cout << " - " << leg.line << " to " << leg.stop << '\n';
+	}
 
-    std::string sname;
-    std::string dname;
+	delete atlas;
 
-    std::cout << "From: ";
-    while(std::getline(std::cin, sname)) {
-        std::cout << "To:   ";
-        if(!std::getline(std::cin, dname)) {
-            break;
-        }
-
-        try {
-            Trip trip = atlas->route(sname, dname);
-            std::cout << "Start at " << trip.start << '\n';
-            for(const Trip::Leg& leg: trip.legs) {
-                std::cout << " - " << leg.line << " to " << leg.stop << '\n';
-            }
-        }
-        catch(const std::exception& e) {
-            std::cout << "Error: " << e.what() << '\n';
-        }
-
-        std::cout << "From: ";
-    }
-
-    delete atlas;
-    return 0;
+	return 0;
 }
 
-
-
-
-
+//
+//int main(int argc, char** argv) {
+//    if(argc != 2) {
+//        std::cout << "USAGE: " << argv[0] << " [data-file]\n";
+//        std::exit(1);
+//    }
+//
+//    Atlas* atlas = nullptr;
+//    try {
+//        std::ifstream file(argv[1]);
+//        if(file.fail()) {
+//            throw std::runtime_error("Could not open file.");
+//        }
+//
+//        atlas = Atlas::create(file);
+//    }
+//    catch(const std::exception& e) {
+//        std::cout << "Error reading file: " << e.what() << '\n';
+//        std::exit(1);
+//    }
+//
+//    std::string sname;
+//    std::string dname;
+//
+//    std::cout << "From: ";
+//    while(std::getline(std::cin, sname)) {
+//        std::cout << "To:   ";
+//        if(!std::getline(std::cin, dname)) {
+//            break;
+//        }
+//
+//        try {
+//            Trip trip = atlas->route(sname, dname);
+//            std::cout << "Start at " << trip.start << '\n';
+//            for(const Trip::Leg& leg: trip.legs) {
+//                std::cout << " - " << leg.line << " to " << leg.stop << '\n';
+//            }
+//        }
+//        catch(const std::exception& e) {
+//            std::cout << "Error: " << e.what() << '\n';
+//        }
+//
+//        std::cout << "From: ";
+//    }
+//
+//    delete atlas;
+//    return 0;
+//}
+//
+//
+//
+//
+//

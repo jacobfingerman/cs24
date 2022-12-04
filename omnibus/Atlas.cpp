@@ -11,6 +11,7 @@ Atlas::Atlas(std::istream& stream) {
 		words >> word1;
 
 		if (word1 == "BUS:" || word1 == "TRAIN:") {
+			std::string type = word1;
 			std::string lineName = "";
 			words >> std::ws >> lineName;
 			
@@ -37,8 +38,8 @@ Atlas::Atlas(std::istream& stream) {
 				std::istringstream words(line);
 				words >> currTime >> currTime >> std::ws >> currName;
 				while (words >> word1) { currName += " " + word1; }
-				mapping.insert(currName, lastName,
-					lineName, std::stoi(currTime) - std::stoi(lastTime));
+				int dist = (type == "BUS:") ? 0 : std::stoi(currTime) - std::stoi(lastTime);
+				mapping.insert(currName, lastName, lineName, dist);
 			}
 		}
 	}
@@ -70,7 +71,7 @@ Trip Atlas::route(const std::string& src, const std::string& dst) {
 
 		Station* current = heap.pop().station;
 
-		if (current == &dest->second) break;
+		//if (current == &dest->second) break;
 
 		for (auto it = current->edges.begin(); it < current->edges.end(); ++it) {
 			Station* next = it->connection;
