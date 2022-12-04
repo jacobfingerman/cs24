@@ -54,18 +54,16 @@ Atlas* Atlas::create(std::istream& stream) {
   return new Atlas(stream);
 }
 
-#include <iostream>
 
 Trip Atlas::route(const std::string& src, const std::string& dst) {
 
 	size_t statCount = mapping.size();
 	std::vector<std::pair<int, Station::Edge>> dist(statCount, {MAXINT, Station::Edge()});
-	Heap heap(statCount);
+	Heap heap(MAXHASH);
 	paired source = mapping.find(src);
 	paired dest = mapping.find(dst);
 
 	if (source == mapping.end() || dest == mapping.end()) {
-		std::cout << src << " -> " << dst << "\n";
 		throw std::runtime_error("No route.");
 	}
 
