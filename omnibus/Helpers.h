@@ -23,11 +23,7 @@ struct Station {
 	struct Edge {
 		std::string line;
 		Station* connection;
-		int weight;
-
-        Edge() {
-            connection = nullptr;
-        }
+		int weight;    
 	};
 
 	std::vector<Edge> edges;
