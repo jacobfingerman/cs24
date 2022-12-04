@@ -4,11 +4,10 @@
 Atlas::Atlas(std::istream& stream) {
 	// Creates atlas with stream
 	mapping = Mapper();
-
 	std::string line;
+
 	while (getline(stream, line)) {
-		
-		// Check lines until it finds bus or train
+		LOOP:
 		std::istringstream words(line);
 		std::string word1;
 		words >> word1;
@@ -48,7 +47,11 @@ Atlas::Atlas(std::istream& stream) {
 				int dist = (type == "BUS:") ? 0 : std::stoi(currTime) - std::stoi(lastTime);
 				mapping.insert(currName, lastName, lineName, dist);
 			}
+			goto LOOP;
 		}
+
+		// Check lines until it finds bus or train
+	
 	}
 
 }
