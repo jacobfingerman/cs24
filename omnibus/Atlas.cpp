@@ -54,6 +54,8 @@ Atlas* Atlas::create(std::istream& stream) {
   return new Atlas(stream);
 }
 
+#include <iostream>
+
 Trip Atlas::route(const std::string& src, const std::string& dst) {
 
 	size_t statCount = mapping.size();
@@ -63,6 +65,7 @@ Trip Atlas::route(const std::string& src, const std::string& dst) {
 	paired dest = mapping.find(dst);
 
 	if (source == mapping.end() || dest == mapping.end()) {
+		std::cout << src << " -> " << dst << "\n";
 		throw std::runtime_error("No route.");
 	}
 

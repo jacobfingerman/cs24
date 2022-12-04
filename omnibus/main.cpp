@@ -13,9 +13,9 @@ int main() {
 	atlas = Atlas::create(file);
 
 	srand(1);
-	int max = 200;
+	int max = 210;
 
-	for (size_t i = 0; i < 100; i++) {
+	for (size_t i = 0; i < 1000; i++) {
 		std::string b = std::to_string(rand() % max + 1);
 		std::string c = std::to_string(rand() % max + 1);
 		std::string d = std::to_string(rand() % max + 1);
@@ -24,22 +24,32 @@ int main() {
 		std::string st1 = "Station " + b + "-" + d;
 		std::string st2 = "Station " + c + "-" + e;
 
-		std::cout << st1 << " -> " << st2 << "\n\n";
+		
 
 		try{ Trip trip = atlas->route(st1, st2); }
 	    catch(const std::exception& e) {
+			std::cout << st1 << " -> " << st2 << "\n\n";
 	        std::cout << "Error: " << e.what() << '\n';
 	    }
 		
 	}
 	
+	/*Trip trip;
+	try { trip = atlas->route("Station 107-14", "Station 31-169"); }
+	catch (const std::exception& e) {
+		std::cout << "Error: " << e.what() << '\n';
+	}*/
+
+
+
+	//std::cout << "Start at " << trip.start << '\n';
+	//for (const Trip::Leg& leg : trip.legs) {
+	//	std::cout << " - " << leg.line << " to " << leg.stop << '\n';
+	//}
 
 	std::cout << "\n all good";
 
-	/*std::cout << "Start at " << trip.start << '\n';
-	for(const Trip::Leg& leg: trip.legs) {
-	    std::cout << " - " << leg.line << " to " << leg.stop << '\n';
-	}*/
+	
 
 	delete atlas;
 
